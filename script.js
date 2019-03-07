@@ -16,7 +16,7 @@ var app = new Vue(
         rus: 'я',
         ex_e: 'I am happy.',
         ex_r: 'Я счастлив(а).',
-      } ,
+      },
       {
         eng: 'you',
         rus: 'вы',  
