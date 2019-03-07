@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'LinBiolinumO';
+    src: url('/fonts/LinBiolinumO.woff') format('woff'),
+         url('/fonts/LinBiolinumO.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+.my-font {
+    font-family: LinBiolinumO;
+}
+
+h1 {
+    color: #4C4C4C;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.h1-home {
+    padding-left: 8%;
+    font-size: xx-large;
+}
+
+h3 {
+    color: #4C4C4C;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+p {
+    color: #4C4C4C;
+    /* margin: 10px; */
+    line-height: 1.9;
+}
+
+.p-home {
+    padding-left: 8%;
+    padding-right: 8%;
+    font-size: large;
+}
+
+.my-brand {
+    height: 45px;
+    width: 45px;
+    /* color: #F8B500;
+    border-color: #F8B500; */
+    color: white;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.brand-text {
+    margin-left: 10px;
+    align-self: center;
+}
+
+.main-container {
+    min-height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 35px;
+}
+
+.spacer {
+    height: 30px;
+}
+
+.spacer-small {
+    height: 10px;
+}
+
+.empty-large {
+    height: 40px;
+}
+
+.how-to-img {
+    display: flex;
+    align-items: center;
+}
+
+.my-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4C4C4C;
+    /* margin-top: 40px; */
+    height: 35px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    color: white;
+    font-size: small;
+}
+
+#footer-link {
+    color: white;
+}
+
+#home-img {
+    width: 100%;
+    opacity: .75;
+    /* box-shadow: 2px 2px 2px; rgba(53, 45, 45, 0.6); */
+}
+
+#about-img {
+    width: 100%;
+}
