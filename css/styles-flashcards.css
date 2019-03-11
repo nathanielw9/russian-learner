@@ -1,0 +1,68 @@
+.center-text {
+  text-align: center;
+}
+
+
+/********** Flash Card Grid **********/
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create 4 equal columns that sits next to each other */
+.card-column {
+  flex: 25%;
+  max-width: 25%;
+  /* padding: 0 8px 8px 8px; */
+}
+
+.card {
+  margin: 8px;
+  padding: 8px;
+  background-color: white;
+  border-style: solid;
+  border-color: #2687CC;
+  border-width: 3px;
+  border-radius: 6px;
+}
+.card-inverse {
+  margin: 8px;
+  padding: 8px;
+  /* background-color: #ddeaff; */
+  background-color: #2687CC;
+  border-style: solid;
+  /* border-color: #ddeaff; */
+  border-color: #2687CC;
+  border-width: 3px;
+  border-radius: 6px;
+}
+
+.card-inverse .card-text {
+  color: white;
+}
+
+.card-text {
+  color: #2687CC;
+}
+
+.large {
+  font-size: xx-large;
+}
+
+/* Responsive layout - makes a one column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .card-column {
+      flex: 50%;
+      max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the one columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .card-column {
+      flex: 100%;
+      max-width: 100%;
+  }
+}
+/******** End Photo Grid ********/

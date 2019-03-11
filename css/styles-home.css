@@ -16,15 +16,14 @@ h1 {
     margin-bottom: 30px;
 }
 
-.h1-home {
-    padding-left: 8%;
-    font-size: xx-large;
-}
-
 h3 {
     color: #4C4C4C;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    /* margin-bottom: 30px; */
+}
+
+.centered {
+  text-align: center;
 }
 
 p {
@@ -34,16 +33,19 @@ p {
 }
 
 .p-home {
-    padding-left: 8%;
-    padding-right: 8%;
     font-size: large;
 }
 
-.my-brand {
+.padded {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+/* .my-brand {
     height: 45px;
     width: 45px;
     /* color: #F8B500;
-    border-color: #F8B500; */
+    border-color: #F8B500; *
     color: white;
     border-color: white;
     border-width: 2px;
@@ -51,19 +53,19 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.brand-container {
+/* .brand-container {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
+    /* justify-content: center; *
     align-items: center;
-}
+} */
 
-.brand-text {
+/* .brand-text {
     margin-left: 10px;
     align-self: center;
-}
+} */
 
 .main-container {
     min-height: 100vh;
@@ -73,22 +75,10 @@ p {
     padding-bottom: 35px;
 }
 
-.spacer {
-    height: 30px;
-}
-
-.spacer-small {
-    height: 10px;
-}
-
 .empty-large {
     height: 40px;
 }
 
-.how-to-img {
-    display: flex;
-    align-items: center;
-}
 
 .my-footer {
     display: flex;
@@ -108,15 +98,6 @@ p {
     color: white;
 }
 
-#home-img {
-    width: 100%;
-    opacity: .75;
-    /* box-shadow: 2px 2px 2px; rgba(53, 45, 45, 0.6); */
-}
-
-#about-img {
-    width: 100%;
-}
 
 /********** Photo Grid **********/
 .photo-row {
