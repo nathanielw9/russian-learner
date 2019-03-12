@@ -27,45 +27,71 @@ var app = new Vue(
         show_eng: false,
       }     
     ],
-    // selectedWord: null,
+    phrases:
+    [
+      {
+        eng: 'How are you doing?',
+        rus: 'Как дела?',
+        show_eng: false,
+      },
+      {
+        eng: 'What\'s your name?',
+        rus: 'Как вас зовут?',
+        show_eng: false,
+      },
+      {
+        eng: 'Excuse me, where is the restroom?',
+        rus: 'Скажите пожалуйста, где туалет?',
+        show_eng: false,
+      },
+    ],
     newEng: '',
     newEngEx: '',
     newRus: '',
     newRusEx: '',
+    newEngP: '',
+    newRusP: '',
   },
 
   methods:
   {
-    // wordClicked: (word) =>
-    // {
-    //   word.show_eng = !word.show_eng;
-    //   this.selectedWord = word;
-    // },
-    addWord: () =>
+    wordClicked(word)
     {
-
+      word.show_eng = !word.show_eng;
     },
-    modalClose: () =>
+    phraseClicked(phrase)
     {
-      console.log('closed')
+      phrase.show_eng = !phrase.show_eng;
     },
-    // saveEng()
+    addWord()
+    {
+      let newWord = 
+      {
+        eng: this.newEng,
+        rus: this.newRus,
+        ex_e: this.newEngEx,
+        ex_r: this.newRusEx,
+        show_eng: false,
+      }
+      this.words.push(newWord);
+      $('.modal-input').val('');
+      $('#wordModal').modal('hide');
+    },
+    addPhrase()
+    {
+      let newPhrase = 
+      {
+        eng: this.newEngP,
+        rus: this.newRusP,
+        show_eng: false,
+      }
+      this.phrases.push(newPhrase);
+      $('.modal-input').val('');
+      $('#phraseModal').modal('hide');
+    }
+    // modalClose()
     // {
-    //   console.log('thing')
-    //   // this.newEng = $('#engInput').val();
-    //   // console.log( $('#engInput').val())
-    // },
-    // saveEngEx()
-    // {
-    //   this.newEngEx = $('#engExInput').val();
-    // },
-    // saveRus()
-    // {
-    //   this.newRus = $('#rusInput').val();
-    // },
-    // saveRusEx()
-    // {
-    //   this.newRusEx = $('#rusExInput').val();
+    //   $('.modal-input').val('');
     // },
   }
 
@@ -76,4 +102,5 @@ $(document).ready(() =>
 {
   // There isn't a good easy way to do this with vue (custom event handling)
   $('#wordModal').on('hidden.bs.modal', () => $('.modal-input').val(''));
+  $('#phraseModal').on('hidden.bs.modal', () => $('.modal-input').val(''));
 });

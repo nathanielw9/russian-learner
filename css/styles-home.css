@@ -7,7 +7,8 @@
   }
 
 .my-font {
-    font-family: LinBiolinumO;
+    /* font-family: LinBiolinumO; */
+    font-family: sans-serif
 }
 
 h1 {
@@ -41,31 +42,6 @@ p {
   padding-right: 15%;
 }
 
-/* .my-brand {
-    height: 45px;
-    width: 45px;
-    /* color: #F8B500;
-    border-color: #F8B500; *
-    color: white;
-    border-color: white;
-    border-width: 2px;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-/* .brand-container {
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center; *
-    align-items: center;
-} */
-
-/* .brand-text {
-    margin-left: 10px;
-    align-self: center;
-} */
 
 .main-container {
     min-height: 100vh;
