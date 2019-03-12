@@ -27,17 +27,53 @@ var app = new Vue(
         show_eng: false,
       }     
     ],
-    selectedWord: null,
+    // selectedWord: null,
+    newEng: '',
+    newEngEx: '',
+    newRus: '',
+    newRusEx: '',
   },
 
   methods:
   {
-    wordClicked: (word) =>
+    // wordClicked: (word) =>
+    // {
+    //   word.show_eng = !word.show_eng;
+    //   this.selectedWord = word;
+    // },
+    addWord: () =>
     {
-      word.show_eng = !word.show_eng;
-      this.selectedWord = word;
-    }
+
+    },
+    modalClose: () =>
+    {
+      console.log('closed')
+    },
+    // saveEng()
+    // {
+    //   console.log('thing')
+    //   // this.newEng = $('#engInput').val();
+    //   // console.log( $('#engInput').val())
+    // },
+    // saveEngEx()
+    // {
+    //   this.newEngEx = $('#engExInput').val();
+    // },
+    // saveRus()
+    // {
+    //   this.newRus = $('#rusInput').val();
+    // },
+    // saveRusEx()
+    // {
+    //   this.newRusEx = $('#rusExInput').val();
+    // },
   }
 
     
+});
+
+$(document).ready(() =>
+{
+  // There isn't a good easy way to do this with vue (custom event handling)
+  $('#wordModal').on('hidden.bs.modal', () => $('.modal-input').val(''));
 });

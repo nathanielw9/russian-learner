@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+.input-group {
+  margin-top: 10px;
+}
+
+#saveButton {
+  background-color: #2687CC;
+}
+
+.add-word:hover {
+  background-color: #2687CC;
+  border-style: solid;
+  border-color: #2687CC;
+}
+
+.add-word:hover .card-text {
+  color: white;
+}
 
 /********** Flash Card Grid **********/
 .card-row {
