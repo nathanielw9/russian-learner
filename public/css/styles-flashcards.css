@@ -1,0 +1,120 @@
+.center-text {
+  text-align: center;
+}
+
+.input-group {
+  margin-top: 10px;
+}
+
+#saveButton {
+  background-color: #2687CC;
+}
+
+button {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.deleteButton {
+  background-color: #ff1e1e;
+  border-style: solid;
+  border-color: #ff1e1e;
+  border-width: 3px;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: white;
+  color: #ff1e1e;
+}
+
+#deleteDiv {
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.spacer {
+  width: 100%;
+  height: 30px;
+}
+
+
+/********** Flash Card Grid **********/
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create 4 equal columns that sits next to each other */
+.card-column {
+  flex: 25%;
+  max-width: 25%;
+  /* padding: 0 8px 8px 8px; */
+}
+
+.card {
+  margin: 8px;
+  padding: 8px;
+  background-color: white;
+  border-style: solid;
+  border-color: #2687CC;
+  border-width: 3px;
+  border-radius: 6px;
+}
+.card:hover {
+  background-color: #d5f4ff;
+}
+.card-inverse {
+  margin: 8px;
+  padding: 8px;
+  background-color: #2687CC;
+  border-style: solid;
+  border-color: #2687CC;
+  border-width: 3px;
+  border-radius: 6px;
+}
+.card-inverse:hover {
+  background-color: #4ea2df;
+  border-color: #4ea2df;
+}
+
+.card-inverse .card-text {
+  color: white;
+}
+
+.card-text {
+  color: #2687CC;
+}
+
+.large {
+  font-size: xx-large;
+}
+
+.add-word:hover {
+  background-color: #2687CC;
+  border-style: solid;
+  border-color: #2687CC;
+}
+
+.add-word:hover .card-text {
+  color: white;
+}
+
+/* Responsive layout - makes a one column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .card-column {
+      flex: 50%;
+      max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the one columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .card-column {
+      flex: 100%;
+      max-width: 100%;
+  }
+}
+/******** End Photo Grid ********/
