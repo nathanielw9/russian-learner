@@ -25,14 +25,25 @@ var app = new Vue(
       .then(response => response.json())
       .then(data =>
       {
-        data.forEach(word => {
+        data.forEach(word => 
+        {
           word['show_eng'] = false;
           this.words.push(word);
         });
       });
     },
-    getPhrases()
+    async getPhrases()
     {
+      fetch('/api/phrases')
+      .then(response => response.json())
+      .then(data =>
+      {
+        data.forEach(phrase => 
+        {
+          phrase['show_eng'] = false;
+          this.phrases.push(phrase);
+        });
+      });
     },
     wordClicked(word)
     {
@@ -50,7 +61,6 @@ var app = new Vue(
         rus: this.newRus,
         ex_e: this.newEngEx,
         ex_r: this.newRusEx,
-        // show_eng: false,
       }
       fetch('/api/words', 
       { 
@@ -61,10 +71,10 @@ var app = new Vue(
       .then(response => response.json())
       .then(data =>
       {
-        console.log(data)
-        // this.words.push(newWord);
-        // $('.modal-input').val('');
-        // $('#wordModal').modal('hide');        
+        data['show_eng'] = false;
+        this.words.push(data);
+        $('.modal-input').val('');
+        $('#wordModal').modal('hide');        
       })
     },
     addPhrase()
@@ -73,11 +83,21 @@ var app = new Vue(
       {
         eng: this.newEngP,
         rus: this.newRusP,
-        show_eng: false,
       }
-      this.phrases.push(newPhrase);
-      $('.modal-input').val('');
-      $('#phraseModal').modal('hide');
+      fetch('/api/phrases', 
+      { 
+        method: 'POST', 
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newPhrase) , 
+      })
+      .then(response => response.json())
+      .then(data =>
+      {
+        data['show_eng'] = false;
+        this.phrases.push(data);
+        $('.modal-input').val('');
+        $('#phraseModal').modal('hide');      
+      })
     },
     // modalClose()
     // {
@@ -85,11 +105,56 @@ var app = new Vue(
     // },
     deleteWords()
     {
-      console.log('need to delete')
+      fetch('/api/words', 
+      { 
+        method: 'DELETE', 
+        headers: { 'Content-Type': 'application/json' },
+      })
+      .then(() =>
+      {
+        this.words = []
+      })
+      .catch(error => console.log(error));
+    },
+    deleteWord(word)
+    {
+      // return;
+      fetch('/api/words/' + word._id, 
+      { 
+        method: 'DELETE', 
+        headers: { 'Content-Type': 'application/json' },
+      })
+      .then(() =>
+      {
+        this.words.splice(this.words.indexOf(word), 1);
+      })
+      .catch(error => console.log(error));
     },
     deletePhrases()
     {
-      console.log('need to delete')
+      fetch('/api/phrases', 
+      { 
+        method: 'DELETE', 
+        headers: { 'Content-Type': 'application/json' },
+      })
+      .then(() =>
+      {
+        this.phrases = []
+      })
+      .catch(error => console.log(error));
+    },
+    deletePhrase(phrase)
+    {
+      fetch('/api/phrases/' + phrase._id, 
+      { 
+        method: 'DELETE', 
+        headers: { 'Content-Type': 'application/json' },
+      })
+      .then(() =>
+      {
+        this.phrase = []
+      })
+      .catch(error => console.log(error));
     }
   }
 

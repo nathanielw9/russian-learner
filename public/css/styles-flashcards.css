@@ -10,6 +10,11 @@
   background-color: #2687CC;
 }
 
+.b-green {
+  background-color: #14B414;
+  color: white;
+}
+
 button {
   border: none;
   padding: 10px 15px;
@@ -29,8 +34,31 @@ button {
   color: #ff1e1e;
 }
 
+.buttonDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonLeft {
+  display: flex;
+  justify-content: flex-start;
+  width: 20%;
+}
+
+.buttonRight {
+  display: flex;
+  justify-content: flex-end;
+  width: 75%;
+  padding-left: 5%;
+}
+
+.buttonLong {
+  width: 100%;
+}
+
+
 #deleteDiv {
-  padding-left: 10px;
+  padding-left: 20px;
   padding-top: 10px;
 }
 
@@ -49,43 +77,50 @@ button {
 
 /* Create 4 equal columns that sits next to each other */
 .card-column {
-  flex: 25%;
+  flex: 23%;
   max-width: 25%;
   /* padding: 0 8px 8px 8px; */
+  margin: 2%;
 }
 
 .card {
-  margin: 8px;
+  /* margin: 8px; */
+  margin-right: 20px;
   padding: 8px;
   background-color: white;
   border-style: solid;
-  border-color: #2687CC;
+  border-color: #349de7;
   border-width: 3px;
   border-radius: 6px;
 }
-.card:hover {
+/* .card:hover {
   background-color: #d5f4ff;
-}
+} */
 .card-inverse {
-  margin: 8px;
+  /* margin: 8px; */
+  margin-right: 20px;
   padding: 8px;
-  background-color: #2687CC;
+  background-color: #349de7;
   border-style: solid;
-  border-color: #2687CC;
+  border-color: #349de7;
   border-width: 3px;
   border-radius: 6px;
 }
-.card-inverse:hover {
-  background-color: #4ea2df;
-  border-color: #4ea2df;
-}
+/* .card-inverse:hover {
+  background-color: #4faff3;
+  border-color: #4faff3;
+} */
 
 .card-inverse .card-text {
   color: white;
 }
 
 .card-text {
-  color: #2687CC;
+  color: #349de7;
+}
+
+.pad-bottom {
+  padding-bottom: 8px;
 }
 
 .large {
@@ -93,13 +128,18 @@ button {
 }
 
 .add-word:hover {
-  background-color: #2687CC;
+  background-color: #349de7;
   border-style: solid;
-  border-color: #2687CC;
+  border-color: #349de7;
 }
 
 .add-word:hover .card-text {
   color: white;
+}
+
+.add-spacer {
+  height: 30;
+  width: 100%;
 }
 
 /* Responsive layout - makes a one column-layout instead of four columns */
