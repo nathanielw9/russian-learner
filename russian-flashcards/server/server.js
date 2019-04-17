@@ -30,8 +30,9 @@ const phraseSchema = new mongoose.Schema({
 const Phrase = mongoose.model('Phrase', phraseSchema);
 
 app.get('/api/words', async (req, res) => {
+  console.log('in the get')
   Word.find({}).then(value => {
-    // console.log(value);
+    console.log(value);
     res.send(value);
   })
 });
