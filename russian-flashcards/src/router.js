@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import Flashcards from './views/Flashcards.vue'
+import Words from './views/Words.vue'
+import Phrases from './views/Phrases.vue'
 
 Vue.use(Router)
 
@@ -11,13 +11,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'words',
+      component: Words
     },
     {
-      path: '/flashcards',
-      name: 'flashcards',
-      component: Flashcards
-    }
+      path: '/words',
+      name: 'words',
+      component: Words
+    },
+    {
+      path: '/phrases',
+      name: 'phrases',
+      component: Phrases
+    },
   ]
 })

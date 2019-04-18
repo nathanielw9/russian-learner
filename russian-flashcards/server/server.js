@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('public'));
 
+
 // connect to the database
 mongoose.connect('mongodb://localhost:27017/russ', {
   useNewUrlParser: true
@@ -30,7 +31,6 @@ const phraseSchema = new mongoose.Schema({
 const Phrase = mongoose.model('Phrase', phraseSchema);
 
 app.get('/api/words', async (req, res) => {
-  console.log('in the get')
   Word.find({}).then(value => {
     console.log(value);
     res.send(value);

@@ -31,10 +31,6 @@
 
 
 <script>
-  // Vue.component('modal', {
-  //   template: '#modal-template'
-  // });
-
   export default {
     name: 'WordModal',
     props: {
@@ -42,7 +38,7 @@
     },
     components:
     {
-      modal: {template: '#modal-template'}
+      // modal: {template: '#modal-template'}
     },
     data() {
       return {

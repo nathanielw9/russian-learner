@@ -30,54 +30,15 @@
         </div>
       </div>
 
+
       <div id='deleteDiv'>
         <button type='button' class='deleteButton autoWidth' @click='deleteWords()'>Delete All Words</button>
       </div>
 
-
-      <br>
-      <br>
-      <hr>
-      <h3 class='center-text'>Phrases</h3>
-      <br>
-      <div class='card-row'>
-          <div class='card-column' v-for='phrase in phrases' v-bind:key='phrase.eng'>
-            <div v-bind:class='[ phrase.show_eng ? "card" : "card-inverse" ]'>
-              <div>
-                <p class='card-text center-text large' v-if='phrase.show_eng'>{{phrase.eng}}</p>
-                <p class='card-text center-text large' v-else>{{phrase.rus}}</p>
-              </div>    
-              <div class='buttonDiv'>
-                <div class='buttonLeft'>
-                  <button type='button' class='deleteButton'>delete</button>
-                </div>
-                <div class='buttonRight'>
-                  <button type='button' class='flipButton' 
-                          v-bind:class='[ phrase.show_eng ? "btn-dark" : "btn-light" ]' 
-                          @click='phraseClicked(phrase)'>flip</button>
-                </div>
-              </div>       
-            </div>
-          </div>
-          <div class='card-column'>
-            <button type='button' class='flipButton autoWidth' @click='showPhraseModal'>add phrase</button>
-          </div>
-        </div>
-
-      <div id='deleteDiv'>
-        <button type='button' class='deleteButton autoWidth' @click='deletePhrases()'>Delete All Phrases</button>
-      </div>
-  
-
-      <div class='empty-large'></div>
-    </div> 
-
+    </div>
 
     <!-- Word Modal -->
     <word-modal :show='showWord' @wordSaved='wordSaved' @escape='hideWordModal' />
-
-    <!-- Phrase Modal -->
-    <!-- <phrase-modal :show='showPhrase' @phraseSaved='phraseSaved' /> -->
 
   <!-- end app -->
   </div> 
@@ -87,30 +48,25 @@
 
 <script>
   import WordModal from '@/components/WordModal.vue'
-  // import PhraseModal from '@/components/PhraseModal.vue'
 
   export default 
   {
-    name: 'flashcards',
+    name: 'words',
     components: 
     {
       WordModal,
-      // PhraseModal,
     },
     data()
     {
       return {
         words: [],
-        phrases: [],
         showWord: false,
-        showPhrase: false,
       }
     },
     // mounted()
     created()
     {
       this.getWords();
-      this.getPhrases();
     },
     methods:
     {
@@ -127,18 +83,32 @@
           });
         });
       },
-      async getPhrases()
+      deleteWords()
       {
-        fetch('/api/phrases')
-        .then(response => response.json())
-        .then(data =>
+        fetch('/api/words', 
+        { 
+          method: 'DELETE', 
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(() =>
         {
-          data.forEach(phrase => 
-          {
-            phrase['show_eng'] = false;
-            this.phrases.push(phrase);
-          });
-        });
+          this.words = []
+        })
+        .catch(error => console.log(error));
+      },
+      deleteWord(word)
+      {
+        // return;
+        fetch('/api/words/' + word._id, 
+        { 
+          method: 'DELETE', 
+          headers: { 'Content-Type': 'application/json' },
+        })
+        .then(() =>
+        {
+          this.words.splice(this.words.indexOf(word), 1);
+        })
+        .catch(error => console.log(error));
       },
       showWordModal()
       {
@@ -148,19 +118,15 @@
       {
         this.showWord = false;
       },
-      showPhraseModal()
+      wordClicked(word)
       {
-        this.showPhrase = true;
+        word.show_eng = !word.show_eng;
       },
       wordSaved(word)
       {
         word['show_eng'] = false;
         this.words.push(word);
-      },
-      phraseSaved(phrase)
-      {
-        phrase['show_eng'] = false;
-        this.phrases.push(phrase);
+        this.hideWordModal();
       },
     },
   }
